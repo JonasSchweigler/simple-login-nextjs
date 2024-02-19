@@ -11,12 +11,25 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useLoginForm } from "@/forms/login.form";
+import { LoginFormValues, useLoginForm } from "@/forms/login.form";
 import Link from "next/link";
 import React from "react";
+import { toast } from "sonner";
 
 export const LoginForm = () => {
   const form = useLoginForm();
+
+  const handleSubmit = (data: LoginFormValues) => {
+    console.log(data);
+    toast("You submitted the following values:", {
+      description: (
+        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
+          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
+  };
+
   return (
     <div className='flex flex-col space-y-16'>
       <div className='space-y-5 text-[#2f1460]'>
@@ -24,7 +37,7 @@ export const LoginForm = () => {
         <h3 className='font-[450] text-base'>Please Log in to your account.</h3>
       </div>
       <Form {...form}>
-        <form className='space-y-5'>
+        <form className='space-y-5' onSubmit={form.handleSubmit(handleSubmit)}>
           <FormField
             control={form.control}
             name='email'
