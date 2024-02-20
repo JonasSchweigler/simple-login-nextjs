@@ -2,7 +2,7 @@
 
 This is the starter code for this code tutorial.
 
-[YouTube Link](https://www.youtube.com/watch?v=U5l5C8l3L3w)
+[YouTube Link](https://www.youtube.com/watch?v=CpkHFBFtVcE)
 
 ## Setup
 
